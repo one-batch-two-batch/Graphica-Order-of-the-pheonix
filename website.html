@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Connect - Bridging NGOs and Communities</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-hands-helping"></i>
+                    <span>NGO Connect</span>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#ngos">NGOs</a>
+                    <a href="#donate">Donate</a>
+                    <a href="#volunteer">Volunteer</a>
+                    <a href="#about">About</a>
+                </div>
+                
+                <div class="auth-buttons">
+                    <button class="btn btn-primary" id="loginBtn">Login</button>
+                    <button class="btn btn-secondary" id="registerBtn">Register</button>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#ngos">NGOs</a></li>
+            <li><a href="#donate">Donate</a></li>
+            <li><a href="#volunteer">Volunteer</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#" id="mobileLoginBtn">Login</a></li>
+            <li><a href="#" id="mobileRegisterBtn">Register</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Connecting NGOs with Those Who Need Help</h1>
+                <p>Find NGOs near you, request assistance, donate resources, or volunteer your time to make a difference in your community.</p>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search by city, cause, or NGO name...">
+                    <button><i class="fas fa-search"></i> Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            
+            <div class="features">
+                <div class="card feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Find NGOs</h3>
+                    <p>Search for NGOs by location, cause, or services they provide to find the right help.</p>
+                </div>
+                
+                <div class="card feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Request Assistance</h3>
+                    <p>Submit requests for help with documentation and location sharing for faster response.</p>
+                </div>
+                
+                <div class="card feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Donate Resources</h3>
+                    <p>Donate food, supplies, or funds to support NGOs in their mission.</p>
+                </div>
+                
+                <div class="card feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Volunteer</h3>
+                    <p>Find volunteer opportunities that match your skills and availability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NGO Listings -->
+    <section class="section" id="ngos">
+        <div class="container">
+            <h2 class="section-title">Featured NGOs</h2>
+            
+            <div class="filters">
+                <select class="filter-select">
+                    <option value="">All Cities</option>
+                    <option value="new-york">New York</option>
+                    <option value="los-angeles">Los Angeles</option>
+                    <option value="chicago">Chicago</option>
+                </select>
+                
+                <select class="filter-select">
+                    <option value="">All Causes</option>
+                    <option value="poverty">Poverty Alleviation</option>
+                    <option value="education">Education</option>
+                    <option value="environment">Environment</option>
+                    <option value="healthcare">Healthcare</option>
+                </select>
+                
+                <select class="filter-select">
+                    <option value="">Sort By</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="recent">Most Recent</option>
+                    <option value="name">Name</option>
+                </select>
+            </div>
+            
+            <div class="ngo-grid">
+                <!-- NGO Card 1 -->
+                <div class="card ngo-card">
+                    <img src="https://placehold.co/600x400" alt="Community food bank warehouse with volunteers sorting donations">
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i> Verified
+                    </div>
+                    <div class="card-content">
+                        <h3>Hope Foundation</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5 (128 reviews)</span>
+                        </div>
+                        <p><i class="fas fa-map-marker-alt"></i> New York, NY</p>
+                        <p>Providing food, shelter and education to underprivileged communities since 2005.</p>
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- NGO Card 2 -->
+                <div class="card ngo-card">
+                    <img src="https://placehold.co/600x400" alt="Children studying in a classroom with educational materials">
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i> Verified
+                    </div>
+                    <div class="card-content">
+                        <h3>Education for All</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0 (92 reviews)</span>
+                        </div>
+                        <p><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</p>
+                        <p>Ensuring quality education for children in underserved communities through resources and support.</p>
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- NGO Card 3 -->
+                <div class="card ngo-card">
+                    <img src="https://placehold.co/600x400" alt="Environmental conservation project with volunteers planting trees">
+                    <div class="card-content">
+                        <h3>Green Earth Initiative</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0 (67 reviews)</span>
+                        </div>
+                        <p><i class="fas fa-map-marker-alt"></i> Chicago, IL</p>
+                        <p>Dedicated to environmental conservation and sustainable practices in urban areas.</p>
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Submission Form -->
+    <section class="section" id="requestHelp">
+        <div class="container">
+            <h2 class="section-title">Request Assistance</h2>
+            
+            <div class="form-container">
+                <div class="card">
+                    <form id="helpRequestForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="problemType">Type of Assistance Needed</label>
+                            <select id="problemType" class="form-control" required>
+                                <option value="">Select a category</option>
+                                <option value="food">Food Assistance</option>
+                                <option value="shelter">Shelter/Housing</option>
+                                <option value="medical">Medical Help</option>
+                                <option value="education">Educational Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description">Description of Need</label>
+                            <textarea id="description" class="form-control" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Supporting Documents (Optional)</label>
+                            <div class="file-upload">
+                                <i class="fas fa-cloud-upload-alt" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                                <p>Click to upload files or drag and drop</p>
+                                <p>PDF, JPG, PNG up to 10MB</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="consent" style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="consent" required>
+                                <span>I consent to share my information with NGOs that may provide assistance</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Donation Section -->
+    <section class="section" id="donate">
+        <div class="container">
+            <h2 class="section-title">Donate Food</h2>
+            
+            <div class="form-container">
+                <div class="card">
+                    <form id="foodDonationForm">
+                        <div class="form-group">
+                            <label for="donorName">Your Name/Organization</label>
+                            <input type="text" id="donorName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="donorContact">Contact Information</label>
+                            <input type="text" id="donorContact" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group
+
+
+
+                  </body>
+</html>
