@@ -538,6 +538,7 @@ footer {
     color: var(--primary-color);
 }
 
+
 .overlay {
     position: fixed;
     top: 0;
@@ -583,3 +584,4 @@ footer {
 .social-icons i.fa-twitter:hover {
   color: #1DA1F2;
 }
+
