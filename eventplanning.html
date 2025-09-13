@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERVato</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1a73e8;
+            --secondary-blue: #4285f4;
+            --light-blue: #e8f0fe;
+            --dark-blue: #0d47a1;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --text-dark: #202124;
+            --text-light: #5f6368;
+            --success: #34a853;
+            --warning: #fbbc04;
+            --danger: #ea4335;
+        }
+        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            font-size: 24px;
+            color: var(--primary-blue);
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: slideUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            animation: slideUp 1.2s ease;
+        }
+
+        /* Dashboard Styles */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+        }
+
+        .stat {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 10px 0;
+        }
+
+        .stat-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Features Section */
+        .features {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-blue);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .feature-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Budget Tracker */
+        .budget-tracker {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: var(--light-gray);
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--primary-blue);
+            border-radius: 5px;
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .budget-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        /* Event Calendar */
+        .event-calendar {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-nav button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .calendar-nav button:hover {
+            color: var(--primary-blue);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .calendar-day {
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .calendar-day:hover {
+            background-color: var(--light-blue);
+        }
+
+        .calendar-day.active {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .calendar-day.has-event::after {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            background-color: var(--warning);
+            border-radius: 50%;
+            margin: 5px auto 0;
+        }
+
+        .day-header {
+            text-align: center;
+            font-weight: 600;
+            padding: 10px;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 30px 0;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+        }
+
+        .footer-links a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .social-icons a {
+            margin-left: 15px;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .user-actions {
+                margin-top: 15px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+
+            .social-icons {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="WhatsApp Image 2025-09-13 at 13.24.36_d5f3126e.jpg"></a>
+                    <h1>SERVato</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Drives</a></li>
+                        <li><a href="#">Budget</a></li>
+                        <li><a href="#">Reports</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <button class="btn btn-primary">Create Event</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Plan, Organize & Manage Your NGO Activities</h2>
+            <p>Streamline your events, drives, and budget management with our comprehensive planning tools designed specifically for non-profit organizations.</p>
+            <button class="btn btn-primary">Get Started</button>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="dashboard">
+            <div class="card animate">
+                <div class="card-header">
+                    <h3 class="card-title">Upcoming Events</h3>
+                    <div class="card-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                </div>
+                <div class="stat">5</div>
+                <p class="stat-desc">Events scheduled for this month</p>
+            </div>
+
+            <div class="card animate">
+                <div class="card-header">
+                    <h3 class="card-title">Active Drives</h3>
+                    <div class="card-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                </div>
+                <div class="stat">3</div>
+                <p class="stat-desc">Ongoing donation drives</p>
+            </div>
+
+            <div class="card animate">
+                <div class="card-header">
+                    <h3 class="card-title">Budget Utilization</h3>
+                    <div class="card-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                </div>
+                <div class="stat">72%</div>
+                <p class="stat-desc">Of annual budget utilized</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 class="section-title">Our Features</h2>
+            <div class="features-grid">
+                <div class="feature-card animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="feature-title">Event Planning</h3>
+                    <p class="feature-desc">Plan and organize events with detailed scheduling, volunteer management, and task assignments.</p>
+                </div>
+
+                <div class="feature-card animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="feature-title">Donation Drives</h3>
+                    <p class="feature-desc">Manage donation drives, track contributions, and generate reports for transparency.</p>
+                </div>
+
+                <div class="feature-card animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="feature-title">Budget Management</h3>
+                    <p class="feature-desc">Track expenses, manage budgets, and generate financial reports for your NGO activities.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="budget-tracker animate">
+            <h2 class="section-title">Budget Tracker</h2>
+            <div class="progress-bar">
+                <div class="progress" id="budget-progress"></div>
+            </div>
+            <div class="budget-info">
+                <span>Spent: $12,500</span>
+                <span>Budget: $17,000</span>
+            </div>
+
+            <div class="budget-items">
+                <div class="budget-item">
+                    <span>Event Supplies</span>
+                    <span>$3,200</span>
+                </div>
+                <div class="budget-item">
+                    <span>Marketing</span>
+                    <span>$2,800</span>
+                </div>
+                <div class="budget-item">
+                    <span>Volunteer Support</span>
+                    <span>$1,500</span>
+                </div>
+                <div class="budget-item">
+                    <span>Logistics</span>
+                    <span>$4,000</span>
+                </div>
+                <div class="budget-item">
+                    <span>Miscellaneous</span>
+                    <span>$1,000</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="event-calendar animate">
+            <div class="calendar-header">
+                <h2>October 2023</h2>
+                <div class="calendar-nav">
+                    <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="day-header">Sun</div>
+                <div class="day-header">Mon</div>
+                <div class="day-header">Tue</div>
+                <div class="day-header">Wed</div>
+                <div class="day-header">Thu</div>
+                <div class="day-header">Fri</div>
+                <div class="day-header">Sat</div>
+
+                <!-- Calendar days will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements on scroll
+            const animatedElements = document.querySelectorAll('.animate');
+            
+            function checkScroll() {
+                animatedElements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Check on initial load
+            
+            // Initialize budget progress bar
+            const budgetProgress = document.getElementById('budget-progress');
+            budgetProgress.style.width = '73.5%';
+            
+            // Initialize calendar
+            initializeCalendar();
+            
+            // Button hover effects
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Calendar navigation
+            document.getElementById('prev-month').addEventListener('click', function() {
+                // In a real app, this would navigate to the previous month
+                alert('Previous month clicked');
+            });
+            
+            document.getElementById('next-month').addEventListener('click', function() {
+                // In a real app, this would navigate to the next month
+                alert('Next month clicked');
+            });
+        });
+        
+        function initializeCalendar() {
+            const calendarGrid = document.querySelector('.calendar-grid');
+            const daysInMonth = 31; // October has 31 days
+            const startDay = 0; // October 1, 2023 is a Sunday
+            
+            // Clear any existing days (except headers)
+            while (calendarGrid.children.length > 7) {
+                calendarGrid.removeChild(calendarGrid.lastChild);
+            }
+            
+            // Add empty cells for days before the start of the month
+            for (let i = 0; i < startDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.classList.add('calendar-day');
+                calendarGrid.appendChild(emptyDay);
+            }
+            
+            // Add cells for each day of the month
+            for (let i = 1; i <= daysInMonth; i++) {
+                const day = document.createElement('div');
+                day.classList.add('calendar-day');
+                day.textContent = i;
+                
+                // Mark today (October 15th for demo purposes)
+                if (i === 15) {
+                    day.classList.add('active');
+                }
+                
+                // Randomly mark some days as having events
+                if (i % 5 === 0 || i % 7 === 0) {
+                    day.classList.add('has-event');
+                }
+                
+                calendarGrid.appendChild(day);
+            }
+        }
+    </script>
+</body>
+</html>
