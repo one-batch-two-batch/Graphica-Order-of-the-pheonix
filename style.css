@@ -58,10 +58,11 @@ button,
 }
 
 .container {
+    font-size: 1rem;
+    align-items: start;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .section {
@@ -99,22 +100,24 @@ header {
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
+    display: flex;;
+    justify-content:space-around;
     align-items: center;
-    padding: 15px 0;
+    padding: 13px 0;
+    gap: 290px
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.5rem;
+    display:flex;
+    align-items:flex-start;
+    align-self: flex-start;
+    font-size: 1.7rem;
     font-weight: 700;
     color: var(--primary-color);
 }
 
 .nav-links {
+    font-size: 1.3rem;
     display: flex;
     gap: 25px;
 }
@@ -132,7 +135,6 @@ header {
 .auth-buttons {
     display: flex;
     gap: 15px;
-    align-items: flex-end;
 }
 
 .mobile-menu-btn {
