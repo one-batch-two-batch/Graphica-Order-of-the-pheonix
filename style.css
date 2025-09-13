@@ -132,6 +132,7 @@ header {
 .auth-buttons {
     display: flex;
     gap: 15px;
+    align-items: flex-end;
 }
 
 .mobile-menu-btn {
