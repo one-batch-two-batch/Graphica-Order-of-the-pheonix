@@ -39,21 +39,21 @@ button,
     transition: var(--transition);
 }
 
-.btn-primary {
+.primary {
     background-color: var(--primary-color);
     color: white;
 }
 
-.btn-primary:hover {
+.primary:hover {
     background-color: #1d4ed8;
 }
 
-.btn-secondary {
+.secondary {
     background-color: var(--secondary-color);
     color: white;
 }
 
-.btn-secondary:hover {
+.secondary:hover {
     background-color: #059669;
 }
 
