@@ -33,7 +33,9 @@ a {
     color: var(--primary-color);
 }
 
-button,
+
+
+
 .btn {
     cursor: pointer;
     padding: 10px 20px;
