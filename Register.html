@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="style1.css">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="Register.css">
 </head>
 <body> 
     <section>
     <div class="login-box">
         <form action="">
-        <h2>Login</h2>
+        <h2>Register</h2>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="Name"></ion-icon></span>
+            <input type="email" required>
+            <label>Name</label>
+        </div>
         <div class="input-box">
             <span class="icon"><ion-icon name="mail"></ion-icon></span>
             <input type="email" required>
@@ -21,13 +26,18 @@
             <input type="password" required>
             <label>Password</label>
             </div>
+            <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" required>
+            <label> Confirm Password</label>
+            </div>
+        
         <div class="remember-forgot">
-            <label><input type="checkbox">Remember Me</label>
-            <a href="#">Forgot Password?</a>
+
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
         <div class="register-link">
-            <p>Don't have an account?<a href="Register.html">Register</a></p>
+            <p>Already have an account?<a href="index1.html">Login</a></p>
         </div>
         </form>
     </div>
